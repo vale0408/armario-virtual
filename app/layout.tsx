@@ -1,33 +1,18 @@
-import type { Metadata } from "next";
+
+// app/layout.tsx
 import "./globals.css";
+import { Playfair_Display, Inter } from "next/font/google";
+import { AuthProvider } from "./context/AuthContext";
 
-export const metadata: Metadata = {
-  title: "Armario Virtual",
-  description: "Tu armario virtual: prendas, outfits y combinaciones.",
-  applicationName: "Armario Virtual",
-  manifest: "/manifest.webmanifest",
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-display" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
-  themeColor: "#F3D6E8",
-
-  icons: {
-    icon: [
-      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icons/icon-512.png", sizes: "512x512", type: "image/png" }
-    ],
-    apple: [
-      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" }
-    ]
-  }
-};
-
-export default function RootLayout({
-  children
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es">
-      <body>{children}</body>
+    <html lang="es" className={`${playfair.variable} ${inter.variable}`}>
+      <body className="font-[var(--font-sans)]">
+        <AuthProvider>{children}</AuthProvider>
+      </body>
     </html>
   );
 }

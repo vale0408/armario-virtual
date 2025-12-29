@@ -1,26 +1,66 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .av-bg {
+    background:
+      radial-gradient(900px 500px at 15% 15%, rgba(255, 184, 227, .55), transparent 60%),
+      radial-gradient(800px 500px at 85% 25%, rgba(200, 180, 255, .55), transparent 60%),
+      radial-gradient(900px 700px at 50% 90%, rgba(255, 220, 244, .55), transparent 65%),
+      linear-gradient(135deg, #fde7f3 0%, #f3e8ff 45%, #fdeaf6 100%);
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  .av-noise {
+    position: relative;
+  }
+  .av-noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .08;
+    mix-blend-mode: soft-light;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(255,255,255,.35) 0 1px, transparent 1px 3px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,.25) 0 1px, transparent 1px 4px);
+    border-radius: inherit;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.38);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow:
+      0 22px 55px rgba(124, 58, 237, 0.14),
+      0 18px 45px rgba(236, 72, 153, 0.12),
+      inset 0 1px 0 rgba(255,255,255,0.55);
+  }
+
+  .soft-input {
+    background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(255,255,255,0.75);
+    box-shadow:
+      0 8px 22px rgba(124, 58, 237, 0.07),
+      inset 0 1px 0 rgba(255,255,255,0.6);
+  }
+
+  .btn-gradient {
+    background: linear-gradient(90deg, #ff5db1, #a855f7);
+    box-shadow:
+      0 14px 35px rgba(236,72,153,0.25),
+      0 12px 30px rgba(168,85,247,0.18);
+  }
+
+  .btn-soft {
+    background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(255,255,255,0.75);
+    box-shadow:
+      0 14px 35px rgba(236,72,153,0.12),
+      0 12px 30px rgba(168,85,247,0.10);
+  }
+
+  .title-girly {
+    font-family: var(--font-display);
+    letter-spacing: 0.3px;
+  }
 }
