@@ -1,14 +1,23 @@
 @import "tailwindcss";
 
+/* Paleta base (soft pink / crema / lilac suave) */
+:root {
+  --av-ink: #2b1456;         /* morado MUY suave, casi tinta */
+  --av-ink-soft: #6b4a86;    /* texto secundario */
+  --av-ring: rgba(255, 140, 200, 0.28);
+}
+
 @layer utilities {
+  /* Fondo: más rosado/crema, menos morado fuerte */
   .av-bg {
     background:
-      radial-gradient(900px 500px at 15% 15%, rgba(255, 184, 227, .55), transparent 60%),
-      radial-gradient(800px 500px at 85% 25%, rgba(200, 180, 255, .55), transparent 60%),
-      radial-gradient(900px 700px at 50% 90%, rgba(255, 220, 244, .55), transparent 65%),
-      linear-gradient(135deg, #fde7f3 0%, #f3e8ff 45%, #fdeaf6 100%);
+      radial-gradient(900px 520px at 18% 18%, rgba(255, 205, 229, 0.72), transparent 60%),
+      radial-gradient(840px 520px at 86% 22%, rgba(224, 205, 255, 0.55), transparent 62%),
+      radial-gradient(980px 760px at 52% 92%, rgba(255, 230, 244, 0.78), transparent 66%),
+      linear-gradient(135deg, #ffeaf3 0%, #f7efff 48%, #fff0f7 100%);
   }
 
+  /* Noise / textura */
   .av-noise {
     position: relative;
   }
@@ -17,50 +26,55 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: .08;
+    opacity: 0.07;
     mix-blend-mode: soft-light;
     background-image:
       repeating-linear-gradient(0deg, rgba(255,255,255,.35) 0 1px, transparent 1px 3px),
-      repeating-linear-gradient(90deg, rgba(255,255,255,.25) 0 1px, transparent 1px 4px);
+      repeating-linear-gradient(90deg, rgba(255,255,255,.22) 0 1px, transparent 1px 4px);
     border-radius: inherit;
   }
 
+  /* Card glass: más crema, sombras “fluffy” */
   .glass-card {
-    background: rgba(255, 255, 255, 0.38);
-    border: 1px solid rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.46);
+    border: 1px solid rgba(255, 255, 255, 0.62);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     box-shadow:
-      0 22px 55px rgba(124, 58, 237, 0.14),
-      0 18px 45px rgba(236, 72, 153, 0.12),
-      inset 0 1px 0 rgba(255,255,255,0.55);
+      0 26px 70px rgba(255, 105, 180, 0.10),
+      0 20px 55px rgba(168, 85, 247, 0.08),
+      inset 0 1px 0 rgba(255,255,255,0.65);
   }
 
+  /* Inputs: más blancos, menos “violeta” */
   .soft-input {
-    background: rgba(255,255,255,0.55);
-    border: 1px solid rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.72);
+    border: 1px solid rgba(255,255,255,0.78);
     box-shadow:
-      0 8px 22px rgba(124, 58, 237, 0.07),
-      inset 0 1px 0 rgba(255,255,255,0.6);
+      0 10px 26px rgba(255, 105, 180, 0.08),
+      0 10px 26px rgba(168, 85, 247, 0.06),
+      inset 0 1px 0 rgba(255,255,255,0.65);
   }
 
+  /* Botón principal: pink -> lilac, más suave */
   .btn-gradient {
-    background: linear-gradient(90deg, #ff5db1, #a855f7);
+    background: linear-gradient(90deg, #ff6fb3 0%, #c083ff 100%);
     box-shadow:
-      0 14px 35px rgba(236,72,153,0.25),
-      0 12px 30px rgba(168,85,247,0.18);
+      0 16px 42px rgba(255, 111, 179, 0.22),
+      0 14px 38px rgba(192, 131, 255, 0.16);
   }
 
+  /* Botón soft: crema con sombra ligera */
   .btn-soft {
-    background: rgba(255,255,255,0.55);
-    border: 1px solid rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.68);
+    border: 1px solid rgba(255,255,255,0.80);
     box-shadow:
-      0 14px 35px rgba(236,72,153,0.12),
-      0 12px 30px rgba(168,85,247,0.10);
+      0 16px 40px rgba(255, 111, 179, 0.10),
+      0 14px 34px rgba(192, 131, 255, 0.08);
   }
 
   .title-girly {
     font-family: var(--font-display);
-    letter-spacing: 0.3px;
+    letter-spacing: 0.2px;
   }
 }
