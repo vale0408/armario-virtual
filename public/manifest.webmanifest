@@ -2,13 +2,15 @@
   "name": "Armario Virtual",
   "short_name": "Armario",
   "description": "Tu armario virtual: prendas, outfits y combinaciones.",
-  "start_url": "/?source=pwa",
+  "start_url": "/login?source=pwa",
   "scope": "/",
   "display": "standalone",
+  "display_override": ["standalone", "fullscreen"],
   "background_color": "#FFF7FB",
   "theme_color": "#F3D6E8",
   "orientation": "portrait",
   "lang": "es-CO",
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "/icons/icon-192.png",
