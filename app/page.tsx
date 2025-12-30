@@ -1,9 +1,20 @@
-export default function Home() {
-  return (
-    <main className="p-6">
-      <h1 className="text-2xl font-semibold">
-        Armario Virtual 🔥
-      </h1>
-    </main>
-  );
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "./context/AuthContext";
+import SplashScreen from "./components/SplashScreen";
+
+export default function HomeGate() {
+  const router = useRouter();
+  const { user, loading } = useAuth();
+
+  useEffect(() => {
+    if (loading) return;
+
+    if (user) router.replace("/app");
+    else router.replace("/login");
+  }, [user, loading, router]);
+
+  return <SplashScreen />;
 }

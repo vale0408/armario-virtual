@@ -10,13 +10,15 @@ export default function LoginPage() {
             ARMARIO VIRTUAL
           </p>
 
-          <h1 className="title-girly mt-2 text-[34px] leading-tight text-[color:var(--av-ink)]">
-            Bienvenida <span className="align-middle">✨</span>
-          </h1>
+          <h1 className="mt-2 text-[26px] font-medium
+text-purple-950">
+  Bienvenida
+</h1>
 
-          <p className="mt-2 text-sm text-[color:var(--av-ink-soft)]/80">
-            Crea outfits y combina sin pensar de más.
-          </p>
+<p className="mt-3 text-sm tracking-wide text-purple-700/60">
+  Crea outfits y combina sin pensar de más.
+</p>
+
         </div>
 
         {/* google */}
@@ -29,9 +31,9 @@ export default function LoginPage() {
 
         <div className="my-5 flex items-center gap-3">
           <div className="h-px flex-1 bg-white/60" />
-          <span className="text-[12px] text-[color:var(--av-ink-soft)]/65">
-            o continuar con email
-          </span>
+       <span className="text-[12px] tracking-wide text-purple-800/55">
+  o continuar con email
+</span>
           <div className="h-px flex-1 bg-white/60" />
         </div>
 
@@ -59,12 +61,12 @@ export default function LoginPage() {
             />
           </div>
 
-          <button
-            className="btn-gradient mt-2 w-full rounded-2xl py-3.5 font-bold text-white
-                       active:scale-[0.99] transition"
-          >
-            Entrar
-          </button>
+          <button className="btn-gradient mt-2 w-full rounded-2xl py-3.5 font-bold text-white
+                   hover:brightness-[1.03] active:scale-[0.99] transition">
+  Entrar
+</button>
+
+
 
           <p className="pt-2 text-center text-[12px] text-[color:var(--av-ink-soft)]/65">
             Al continuar aceptas guardar tu armario de forma segura 💗
