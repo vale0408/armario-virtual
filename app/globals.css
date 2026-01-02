@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* ✅ Fallback para que en PWA no salga negro mientras carga */
+html, body {
+  height: 100%;
+  background: #FFF7FB; /* tu crema */
+}
+
 /* Paleta base (sobria + girly) */
 :root {
   --av-ink: #2b1456;           /* tinta morada suave */

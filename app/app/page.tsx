@@ -1,11 +1,11 @@
 "use client";
 
-import { useAuth } from "../context/AuthContext";
-import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "../context/AuthContext";
 import AuthBackdrop from "../components/AuthBackdrop";
 
-export default function AppHome() {
+export default function AppHomePage() {
   const { user, loading } = useAuth();
   const router = useRouter();
 
@@ -13,7 +13,11 @@ export default function AppHome() {
     if (!loading && !user) router.replace("/login");
   }, [loading, user, router]);
 
+  // Mientras Firebase decide, no muestres nada (o puedes mostrar un mini loader)
   if (loading) return null;
+
+  // Si no hay user, el useEffect ya redirige
+  if (!user) return null;
 
   return (
     <AuthBackdrop>
