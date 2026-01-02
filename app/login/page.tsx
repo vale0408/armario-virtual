@@ -13,10 +13,6 @@ import AuthBackdrop from "../components/AuthBackdrop";
 import { auth } from "../../lib/firebase";
 import { useAuth } from "../context/AuthContext";
 
-/**
- * PASO 1:
- * Mostrar el código REAL del error de Firebase
- */
 function firebaseErrorToSpanish(err: unknown) {
   const code = (err as AuthError)?.code || "unknown";
 
@@ -42,7 +38,6 @@ function firebaseErrorToSpanish(err: unknown) {
     case "auth/network-request-failed":
       return "Error de red. Revisa tu conexión.";
     default:
-      // 👇 CLAVE
       return `No se pudo iniciar sesión (${code}).`;
   }
 }
@@ -179,6 +174,16 @@ export default function LoginPage() {
                    hover:brightness-[1.03] active:scale-[0.99] transition disabled:opacity-70"
           >
             {submitting ? "Entrando..." : "Entrar"}
+          </button>
+
+          {/* ✅ SOLO UNO: ir a /register */}
+          <button
+            type="button"
+            onClick={() => router.push("/register")}
+            disabled={submitting}
+            className="w-full text-center text-[12px] text-purple-700/60 hover:underline disabled:opacity-60"
+          >
+            ¿Primera vez? Crear cuenta
           </button>
 
           {/* ERROR */}
